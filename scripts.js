@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	
+	$('head').append('<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/nationaljournal/DHS-budget/styles.css" type="text/css" />');
 	
 	var height = $("#main-text").height();
 	// Move title up to top within 10% of scroll over main text blob
