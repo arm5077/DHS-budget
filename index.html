@@ -5,6 +5,9 @@
 
 <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
 
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
 <!-- Skrollr -->
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.29/skrollr.min.js"></script>
 
@@ -12,6 +15,13 @@
 	
 	html,body {	
 		font-family:"Slabo 27px", Georgia, serif;
+	}
+	
+	#opener {
+		font-size:17pt;
+		display:inline-block;
+		float:left;
+		
 	}
 	
 	.small {
@@ -50,18 +60,93 @@
 		list-style:square;
 		padding-left:10px;
 	}
+	
+	.floating-container {
+		text-align:center;
+		position: fixed; 
+		width:100%;
+		left:0
+
+	}
+	
+	.floating-box {
+		background-color: rgba(255,255,255,.9)	;
+		width:50%;
+		max-width:400px;
+		margin:auto;
+		padding:1%;
+	}
+		.floating-box p {
+			font-size:16pt;
+			line-height:1.5em;
+		}
+	
+
 </style>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		var height = $("#main-text").height();
+		// Move title up to top within 10% of scroll over main text blob
+		$("#title").attr("data-" + height * .05, "top: " + getCenterFixedObject($("#title")) + "px");
+		$("#title").attr("data-" + height * .15, "top: 10px");
+			
+		$("#p1").attr("data-"+ height * .1, "opacity: 0; top: " + $(window).height() + "px");
+		$("#p1").attr("data-"+ height * .3, "opacity: 1; top: " + (10 + $("#title").outerHeight() + 50) + "px");
+			
+		// Start sliding and fading title away and moving up p1
+		$("#title").attr("data-" + height * .4, "top: 10px");
+		$("#title").attr("data-" + height * .6, "top: -" + ( $("#title").outerHeight() + 20 ) + "px");
+		$("#p1").attr("data-"+ height * .4, "opacity: 1; top: " + (10 + $("#title").outerHeight() + 50) + "px");
+		$("#p1").attr("data-"+ height * .6, "opacity: 1; top: 10px");
+			
+		$("#p2").attr("data-"+ height * .4, "opacity: 0; top: " + $(window).height() + "px");
+		$("#p2").attr("data-"+ height * .6, "opacity: 1; top: " + ( 10 + $("#p1").outerHeight() + 10 ) + "px");
+		
+		// Roll it all up!
+		$("#p1").attr("data-"+ height * .75, "opacity: 1; top: 10px");
+		$("#p1").attr("data-"+ height * .95, "opacity: 1; top: -" + ( $("#p2").outerHeight() + 10 + $("#p1").outerHeight() + 10 ));
+		$("#p2").attr("data-"+ height * .75, "opacity: 1; top: " + ( 10 + $("#p1").outerHeight() + 10 ) + "px");	
+		$("#p2").attr("data-"+ height * .95, "opacity: 1; top: -" + ( $("#p2").outerHeight() + 10 ) + "px");	
+		
+		var s = skrollr.init();
+	});
+	
+	function getCenterFixedObject( obj ){
+		return ( $(window).height() - $(obj).outerHeight() ) / 2;
+	};
+	
+</script>
+
 </head>
 
 <body>
 
-<div data-0="position: fixed; width:100%; top:40%; left:0" data-1000="top:20%;" style="text-align:center">
-	oyoyoyoyoyo
+<div id = "title" class = "floating-container">
+	<div class = "floating-box">
+		<h1>This is the bill with the poison pill.</h1>
+	</div>
 </div>
 
-<div class = "small">
-AN ACT
-Making appropriations for the Department of Homeland Security for the fiscal year ending September 30, 2015, and for other purposes.
+<div id = "p1" class = "floating-container">
+	<div class = "floating-box">
+		<p>Since January, Republicans and Democrats have fought over the Department of Homeland Security's XX million funding bill, which expires Feb. XX.</p>
+		<p>Totaling $XX million, it funds many departments most Americans would deem essential: the Border Patrol, the Coast Guard and the TSA, to name a few.</p>
+	</div>
+</div>
+
+<div id = "p2" class = "floating-container">
+	<div class = "floating-box">
+		<p>The sticking point? A small package of amendments added by Republicans effectively eliminating President Obama's executive action on immigration.</p>
+	</div>
+</div>
+
+
+
+<div class = "small" id = "main-text">
+<span id = "opener">AN ACT
+Making appropriations for the Department of Homeland Security for the fiscal year ending September 30, 2015,</span> and for other purposes.
 
 Be it enacted by the Senate and House of Representatives of the United States of America in Congress assembled, That the following sums are appropriated, out of any money in the Treasury not otherwise appropriated, for the Department of Homeland Security for the fiscal year ending September 30, 2015, and for other purposes, namely:
 
@@ -915,9 +1000,5 @@ SEC. 581.(a) No funds or fees made available to the Secretary of Homeland Securi
 This Act may be cited as the &ldquo;Department of Homeland Security Appropriations Act, 2015&rdquo;.
 </div>
 </body>
-
-<script type="text/javascript">
-   var s = skrollr.init();
-</script>
 
 </html>
