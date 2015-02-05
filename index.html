@@ -17,10 +17,14 @@
 		font-family:"Slabo 27px", Georgia, serif;
 	}
 	
-	#opener {
+	.highlight {
 		font-size:17pt;
 		display:inline-block;
 		float:left;
+		background-color: #333;
+		color:white;
+		padding:20px;
+		margin-bottom:10px;
 		
 	}
 	
@@ -32,14 +36,24 @@
 		margin:auto;
 	}
 	
+	
+	
 	.big {
-		width:90%;
-		max-width:700px;
-		font-size: 15pt;
-		text-align:justify;
-		margin: 10px auto;
+		width:60%;
+		margin: 40px auto;
 		line-height:1.4em;
+		padding:30px 0px;
+		background-color: rgba(253, 211, 0, .5)
+		
 	}
+	
+		.big .text {
+			width:90%;
+			max-width:700px;
+			font-size: 15pt;
+			text-align:justify;
+			margin:auto;
+		}
 	
 	ul {
 		padding-left:0;
@@ -87,6 +101,8 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		
+		
+		
 		var height = $("#main-text").height();
 		// Move title up to top within 10% of scroll over main text blob
 		$("#title").attr("data-" + height * .05, "top: " + getCenterFixedObject($("#title")) + "px");
@@ -110,8 +126,14 @@
 		$("#p2").attr("data-"+ height * .75, "opacity: 1; top: " + ( 10 + $("#p1").outerHeight() + 10 ) + "px");	
 		$("#p2").attr("data-"+ height * .95, "opacity: 1; top: -" + ( $("#p2").outerHeight() + 10 ) + "px");	
 		
+		
+		
 		var s = skrollr.init();
+			
+		document.location = "#";
+		
 	});
+	
 	
 	function getCenterFixedObject( obj ){
 		return ( $(window).height() - $(obj).outerHeight() ) / 2;
@@ -145,7 +167,7 @@
 
 
 <div class = "small" id = "main-text">
-<span id = "opener">AN ACT
+<span class = "highlight">AN ACT
 Making appropriations for the Department of Homeland Security for the fiscal year ending September 30, 2015,</span> and for other purposes.
 
 Be it enacted by the Senate and House of Representatives of the United States of America in Congress assembled, That the following sums are appropriated, out of any money in the Treasury not otherwise appropriated, for the Department of Homeland Security for the fiscal year ending September 30, 2015, and for other purposes, namely:
@@ -898,30 +920,32 @@ SEC. 578. The explanatory statement regarding this Act, printed in the House of 
 
 
 <div class= "big">
-	<ul>
-		<li>
-			SEC. 579.(a) No funds, resources, or fees made available to the Secretary of Homeland Security, or to any other official of a Federal agency, by this Act or any other Act for any fiscal year, including any deposits into the &ldquo;Immigration Examinations Fee Account&rdquo; established under section 286(m) of the Immigration and Nationality Act (8 U.S.C. 1356(m)), may be used to implement, administer, enforce, or carry out (including through the issuance of any regulations) any of the policy changes set forth in the following memoranda (or any substantially similar policy changes issued or taken on or after January 9, 2015, whether set forth in memorandum, Executive order, regulation, directive, or by other action):
-			<ul>
-				<li>(1) The memorandum from the Director of United States Immigration and Customs Enforcement entitled &ldquo;Civil Immigration Enforcement: Priorities for the Apprehension, Detention, and Removal of Aliens&rdquo; dated March 2, 2011.</li>
-				<li>(2) The memorandum from the Director of United States Immigration and Customs Enforcement entitled &ldquo;Exercising Prosecutorial Discretion Consistent with the Civil Immigration Enforcement Priorities of the Agency for the Apprehension, Detention, and Removal of Aliens&rdquo; dated June 17, 2011.</li>
-				<li>(3) The memorandum from the Principal Legal Advisor of United States Immigration and Customs Enforcement entitled &ldquo;Case-by-Case Review of Incoming and Certain Pending Cases&rdquo; dated November 17, 2011.</li>
-				<li>(4) The memorandum from the Director of United States Immigration and Customs Enforcement entitled &ldquo;Civil Immigration Enforcement: Guidance on the Use of Detainers in the Federal, State, Local, and Tribal Criminal Justice Systems&rdquo; dated December 21, 2012.</li>
-				<li>(5) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Southern Border and Approaches Campaign&rsquo;&rsquo; dated November 20, 2014.</li>
-				<li>(6) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Policies for the Apprehension, Detention and Removal of Undocumented Immigrants&rsquo;&rsquo; dated November 20, 2014.</li>
-				<li>(7) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Secure Communities&rsquo;&rsquo; dated November 20, 2014.</li>
-				<li>(8) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Exercising Prosecutorial Discretion with Respect to Individuals Who Came to the United States as Children and with Respect to Certain Individuals Who Are the Parents of U.S. Citizens or Permanent Residents&rsquo;&rsquo; dated November 20, 2014.</li>
-				<li>(9) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Expansion of the Provisional Waiver Program&rsquo;&rsquo; dated November 20, 2014.</li>
-				<li>(10) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Policies Supporting U.S. High-Skilled Businesses and Workers&rsquo;&rsquo; dated November 20, 2014.</li>
-				<li>(11) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Families of U.S. Armed Forces Members and Enlistees&rsquo;&rsquo; dated November 20, 2014.</li>
-				<li>(12) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Directive to Provide Consistency Regarding Advance Parole&rsquo;&rsquo; dated November 20, 2014.</li>
-				<li>(13) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Policies to Promote and Increase Access to U.S. Citizenship&rsquo;&rsquo; dated November 20, 2014.</li>
-				<li>(14) The memorandum from the President entitled &lsquo;&lsquo;Modernizing and Streamlining the U.S. Immigrant Visa System for the 21st Century&rsquo;&rsquo; dated November 21, 2014.</li>
-				<li>(15) The memorandum from the President entitled &lsquo;&lsquo;Creating Welcoming Communities and Fully Integrating Immigrants and Refugees&rsquo;&rsquo; dated November 21, 2014.</li>
-			</ul>
-		<li>
-		<li>(b) The memoranda referred to in subsection (a) (or any substantially similar policy changes issued or taken on or after January 9, 2015, whether set forth in memorandum, Executive order, regulation, directive, or by other action) have no statutory or constitutional basis and therefore have no legal effect.</li>
-		<li>(c) No funds or fees made available to the Secretary of Homeland Security, or to any other official of a Federal agency, by this Act or any other Act for any fiscal year, including any deposits into the &ldquo;Immigration Examinations Fee Account&rdquo; established under section 286(m) of the Immigration and Nationality Act (8 U.S.C. 1356(m)), may be used to grant any Federal benefit to any alien pursuant to any of the policy changes set forth in the memoranda referred to in subsection (a) (or any substantially similar policy changes issued or taken on or after January 9, 2015, whether set forth in memorandum, Executive order, regulation, directive, or by other action).</li>
-	</ul>
+	<div class = "text">
+		<ul>
+			<li>
+				SEC. 579.(a) No funds, resources, or fees made available to the Secretary of Homeland Security, or to any other official of a Federal agency, by this Act or any other Act for any fiscal year, including any deposits into the &ldquo;Immigration Examinations Fee Account&rdquo; established under section 286(m) of the Immigration and Nationality Act (8 U.S.C. 1356(m)), may be used to implement, administer, enforce, or carry out (including through the issuance of any regulations) any of the policy changes set forth in the following memoranda (or any substantially similar policy changes issued or taken on or after January 9, 2015, whether set forth in memorandum, Executive order, regulation, directive, or by other action):
+				<ul>
+					<li>(1) The memorandum from the Director of United States Immigration and Customs Enforcement entitled &ldquo;Civil Immigration Enforcement: Priorities for the Apprehension, Detention, and Removal of Aliens&rdquo; dated March 2, 2011.</li>
+					<li>(2) The memorandum from the Director of United States Immigration and Customs Enforcement entitled &ldquo;Exercising Prosecutorial Discretion Consistent with the Civil Immigration Enforcement Priorities of the Agency for the Apprehension, Detention, and Removal of Aliens&rdquo; dated June 17, 2011.</li>
+					<li>(3) The memorandum from the Principal Legal Advisor of United States Immigration and Customs Enforcement entitled &ldquo;Case-by-Case Review of Incoming and Certain Pending Cases&rdquo; dated November 17, 2011.</li>
+					<li>(4) The memorandum from the Director of United States Immigration and Customs Enforcement entitled &ldquo;Civil Immigration Enforcement: Guidance on the Use of Detainers in the Federal, State, Local, and Tribal Criminal Justice Systems&rdquo; dated December 21, 2012.</li>
+					<li>(5) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Southern Border and Approaches Campaign&rsquo;&rsquo; dated November 20, 2014.</li>
+					<li>(6) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Policies for the Apprehension, Detention and Removal of Undocumented Immigrants&rsquo;&rsquo; dated November 20, 2014.</li>
+					<li>(7) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Secure Communities&rsquo;&rsquo; dated November 20, 2014.</li>
+					<li>(8) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Exercising Prosecutorial Discretion with Respect to Individuals Who Came to the United States as Children and with Respect to Certain Individuals Who Are the Parents of U.S. Citizens or Permanent Residents&rsquo;&rsquo; dated November 20, 2014.</li>
+					<li>(9) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Expansion of the Provisional Waiver Program&rsquo;&rsquo; dated November 20, 2014.</li>
+					<li>(10) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Policies Supporting U.S. High-Skilled Businesses and Workers&rsquo;&rsquo; dated November 20, 2014.</li>
+					<li>(11) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Families of U.S. Armed Forces Members and Enlistees&rsquo;&rsquo; dated November 20, 2014.</li>
+					<li>(12) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Directive to Provide Consistency Regarding Advance Parole&rsquo;&rsquo; dated November 20, 2014.</li>
+					<li>(13) The memorandum from the Secretary of Homeland Security entitled &lsquo;&lsquo;Policies to Promote and Increase Access to U.S. Citizenship&rsquo;&rsquo; dated November 20, 2014.</li>
+					<li>(14) The memorandum from the President entitled &lsquo;&lsquo;Modernizing and Streamlining the U.S. Immigrant Visa System for the 21st Century&rsquo;&rsquo; dated November 21, 2014.</li>
+					<li>(15) The memorandum from the President entitled &lsquo;&lsquo;Creating Welcoming Communities and Fully Integrating Immigrants and Refugees&rsquo;&rsquo; dated November 21, 2014.</li>
+				</ul>
+			<li>
+			<li>(b) The memoranda referred to in subsection (a) (or any substantially similar policy changes issued or taken on or after January 9, 2015, whether set forth in memorandum, Executive order, regulation, directive, or by other action) have no statutory or constitutional basis and therefore have no legal effect.</li>
+			<li>(c) No funds or fees made available to the Secretary of Homeland Security, or to any other official of a Federal agency, by this Act or any other Act for any fiscal year, including any deposits into the &ldquo;Immigration Examinations Fee Account&rdquo; established under section 286(m) of the Immigration and Nationality Act (8 U.S.C. 1356(m)), may be used to grant any Federal benefit to any alien pursuant to any of the policy changes set forth in the memoranda referred to in subsection (a) (or any substantially similar policy changes issued or taken on or after January 9, 2015, whether set forth in memorandum, Executive order, regulation, directive, or by other action).</li>
+		</ul>
+	</div>
 </div>
 <div class = "small">
 
@@ -935,9 +959,9 @@ SEC. 578. The explanatory statement regarding this Act, printed in the House of 
 
 </div>
 <div class = "big">
-
-SEC. 580.(a) No funds, resources or fees made available to the Secretary of Homeland Security, or to any other official of a Federal agency, by this Act or any other Act for any fiscal year, including any deposits into the &ldquo;Immigration Examinations Fee Account&rdquo; established under section 286(m) of the Immigration and Nationality Act (8 U.S.C. 1356(m)), may be used to consider or adjudicate any new, renewal or previously denied application for any alien requesting consideration of deferred action for childhood arrivals, as authorized by the Executive memorandum dated June 15, 2012, and effective on August 15, 2012 (or any substantially similar policy changes issued or taken on or after January 9, 2015, whether set forth in memorandum, Executive order, regulation, directive, or by other action).
-
+	<div class = "text">
+		SEC. 580.(a) No funds, resources or fees made available to the Secretary of Homeland Security, or to any other official of a Federal agency, by this Act or any other Act for any fiscal year, including any deposits into the &ldquo;Immigration Examinations Fee Account&rdquo; established under section 286(m) of the Immigration and Nationality Act (8 U.S.C. 1356(m)), may be used to consider or adjudicate any new, renewal or previously denied application for any alien requesting consideration of deferred action for childhood arrivals, as authorized by the Executive memorandum dated June 15, 2012, and effective on August 15, 2012 (or any substantially similar policy changes issued or taken on or after January 9, 2015, whether set forth in memorandum, Executive order, regulation, directive, or by other action).
+	</div>
 </div>
 
 <div class = "small">
@@ -953,8 +977,9 @@ SEC. 580.(a) No funds, resources or fees made available to the Secretary of Home
 </div>
 
 <div class = "big">
-SEC. 581.(a) No funds or fees made available to the Secretary of Homeland Security by this Act or any other Act for any fiscal year may be used to implement, administer, enforce, or carry out (including through the issuance of any regulations) any policy relating to the apprehension, detention, or removal of aliens that does not treat any alien convicted of any offense involving domestic violence, sexual abuse, child molestation, or child exploitation as within the categories of aliens subject to the Department of Homeland Security&rsquo;s highest civil immigration enforcement priorities.
-
+	<div class = "text">
+		SEC. 581.(a) No funds or fees made available to the Secretary of Homeland Security by this Act or any other Act for any fiscal year may be used to implement, administer, enforce, or carry out (including through the issuance of any regulations) any policy relating to the apprehension, detention, or removal of aliens that does not treat any alien convicted of any offense involving domestic violence, sexual abuse, child molestation, or child exploitation as within the categories of aliens subject to the Department of Homeland Security&rsquo;s highest civil immigration enforcement priorities.
+	</div>
 </div>
 
 <div class = "small">
@@ -970,34 +995,36 @@ SEC. 581.(a) No funds or fees made available to the Secretary of Homeland Securi
 </div>
 
 <div class = "big">
-	<ul>
-		<li>SEC. 582.(a) The Congress finds that&mdash;
-			<ul>
-				<li>(1) under the Patient Protection and Affordable Care Act (Public Law 111&ndash;148), many individuals and businesses are required to purchase health insurance coverage for themselves and their employees;</li>
-				<li>(2) individuals who were unlawfully present in the United States who have been granted deferred action under the Deferred Action for Childhood Arrivals Program undertaken by the Executive Branch and who then receive work authorization are exempt from these requirements;</li>
-				<li>(3) many United States employers hiring United States citizens or individuals legally present in the United States are required to either offer those persons affordable health insurance or pay a penalty of approximately $3,000 per employee per year; and</li>
-				<li>(4) an employer does not have to provide insurance, or in many instances pay a penalty, if they hire individuals who were not lawfully present but who have been granted deferred action under the Deferred Action for Childhood Arrivals Program and work authorization.</li>
-			</ul>
-		</li>
-		<li>(b) It is the sense of the Congress that&mdash;
-			<ul>
-				<li>(1) this disparate treatment has the unacceptable effect of discouraging the hiring of United States citizens and those in a lawful immigration status in the United States; and</li>
-				<li>(2) the Executive Branch should refrain from pursuing policies, such as granting deferred action under the Deferred Action for Childhood Arrivals Program and work authorization to unlawfully present individuals, that disadvantage the hiring of United States citizens and those in a lawful immigration status in the United States.</li>
-			</ul>
-		</li>
-	</ul>
+	<div class = "text">
+		<ul>
+			<li>SEC. 582.(a) The Congress finds that&mdash;
+				<ul>
+					<li>(1) under the Patient Protection and Affordable Care Act (Public Law 111&ndash;148), many individuals and businesses are required to purchase health insurance coverage for themselves and their employees;</li>
+					<li>(2) individuals who were unlawfully present in the United States who have been granted deferred action under the Deferred Action for Childhood Arrivals Program undertaken by the Executive Branch and who then receive work authorization are exempt from these requirements;</li>
+					<li>(3) many United States employers hiring United States citizens or individuals legally present in the United States are required to either offer those persons affordable health insurance or pay a penalty of approximately $3,000 per employee per year; and</li>
+					<li>(4) an employer does not have to provide insurance, or in many instances pay a penalty, if they hire individuals who were not lawfully present but who have been granted deferred action under the Deferred Action for Childhood Arrivals Program and work authorization.</li>
+				</ul>
+			</li>
+			<li>(b) It is the sense of the Congress that&mdash;
+				<ul>
+					<li>(1) this disparate treatment has the unacceptable effect of discouraging the hiring of United States citizens and those in a lawful immigration status in the United States; and</li>
+					<li>(2) the Executive Branch should refrain from pursuing policies, such as granting deferred action under the Deferred Action for Childhood Arrivals Program and work authorization to unlawfully present individuals, that disadvantage the hiring of United States citizens and those in a lawful immigration status in the United States.</li>
+				</ul>
+			</li>
+		</ul>
 
-	<ul>
-		<li>SEC. 583. It is the sense of the Congress that the Director of United States Citizenship and Immigration Services (USCIS) should&mdash;
-			<ul>
-				<li>(1) stop putting the interests of aliens who are unlawfully present in the United States ahead of the interests of aliens who are following proper immigration laws and procedures by adjudicating petitions and applications for immigration benefits submitted by aliens unlawfully present in the United States. When USCIS adjudicators and resources are used to adjudicate petitions and applications for aliens who are unlawfully present, the time it takes to process petitions and applications submitted by other aliens is significantly increased and a backlog is created. In addition, it is unfair to use the fees paid by other aliens to cover the costs of adjudicating petitions and applications for aliens unlawfully present in the United States; and</li>
-				<li>(2) use the funds available under existing law to improve services and increase the efficiency of the immigration benefits application process for aliens abroad or who are lawfully present in the United States.</li>
-			</ul>
-		</li>
-	</ul>
+		<ul>
+			<li>SEC. 583. It is the sense of the Congress that the Director of United States Citizenship and Immigration Services (USCIS) should&mdash;
+				<ul>
+					<li>(1) stop putting the interests of aliens who are unlawfully present in the United States ahead of the interests of aliens who are following proper immigration laws and procedures by adjudicating petitions and applications for immigration benefits submitted by aliens unlawfully present in the United States. When USCIS adjudicators and resources are used to adjudicate petitions and applications for aliens who are unlawfully present, the time it takes to process petitions and applications submitted by other aliens is significantly increased and a backlog is created. In addition, it is unfair to use the fees paid by other aliens to cover the costs of adjudicating petitions and applications for aliens unlawfully present in the United States; and</li>
+					<li>(2) use the funds available under existing law to improve services and increase the efficiency of the immigration benefits application process for aliens abroad or who are lawfully present in the United States.</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
 </div>
 <div class = "small">
-This Act may be cited as the &ldquo;Department of Homeland Security Appropriations Act, 2015&rdquo;.
+	<span class = "highlight">This Act may be cited as the &ldquo;Department of Homeland Security Appropriations Act, 2015&rdquo;.</span>
 </div>
 </body>
 
