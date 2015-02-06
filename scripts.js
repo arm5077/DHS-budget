@@ -1,8 +1,27 @@
 $(document).ready(function(){
 	
-	var s = skrollr.init();
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		resize();	
+		
+		
+		$(".big").first().waypoint(function(direction){
+			if( direction == "down" ) {
+				console.log("dasasdsa");
+				$(".down-arrow").fadeOut("fast");
+			}
+			else
+				$(".down-arrow").fadeIn("fast");
+		},{
+			offset: "100%"
+		});
+	}
+	else {
+		var s = skrollr.init();
+		resize(s);
+	}
+
 	
-	resize(s);
+	
 	
 	$(window).resize(function(){ resize(s) });
 	
@@ -12,35 +31,63 @@ $(document).ready(function(){
 
 
 function resize(s){
+	
+	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		
+		$(".floating-container").css("position", "absolute");
+		
+		$("#title").css({
+			position: "absolute",
+			top: "200px"
+		});
+		
+		$("#p1").css({
+			position: "absolute",
+			top: "1500px"
+		});
+		
+		$("#p2").css({
+			position: "absolute",
+			top: "2600px"
+		});
+		
+		$(".small").css({
+			"font-size": "3pt"
+		});
+		
+		$(".big").css({
+			"font-size": "10pt" 
+		});
+		
+	} 
+	else {
+		[$("#title"), $("#p1"), $("#p2")].forEach(removeDataAttributes);
+	
+		var height = $("#main-text").height();
+		// Move title up to top within 10% of scroll over main text blob
+		$("#title").attr("data-" + height * .05, "top: " + getCenterFixedObject($("#title")) + "px");
+		$("#title").attr("data-" + height * .15, "top: 10px");
+	
+		$("#p1").attr("data-"+ height * .1, "opacity: 0; top: " + $(window).height() + "px");
+		$("#p1").attr("data-"+ height * .3, "opacity: 1; top: " + (10 + $("#title").outerHeight() + 50) + "px");
+	
+		// Start sliding and fading title away and moving up p1
+		$("#title").attr("data-" + height * .4, "top: 10px");
+		$("#title").attr("data-" + height * .6, "top: -" + ( $("#title").outerHeight() + 20 ) + "px");
+		$("#p1").attr("data-"+ height * .4, "opacity: 1; top: " + (10 + $("#title").outerHeight() + 50) + "px");
+		$("#p1").attr("data-"+ height * .6, "opacity: 1; top: 10px");
+	
+		$("#p2").attr("data-"+ height * .4, "opacity: 0; top: " + ($(window).height() +50) + "px");
+		$("#p2").attr("data-"+ height * .6, "opacity: 1; top: " + ( 10 + $("#p1").outerHeight() + 40 ) + "px");
 
-	[$("#title"), $("#p1"), $("#p2")].forEach(removeDataAttributes);
-	
-	var height = $("#main-text").height();
-	// Move title up to top within 10% of scroll over main text blob
-	$("#title").attr("data-" + height * .05, "top: " + getCenterFixedObject($("#title")) + "px");
-	$("#title").attr("data-" + height * .15, "top: 10px");
-	
-	$("#p1").attr("data-"+ height * .1, "opacity: 0; top: " + $(window).height() + "px");
-	$("#p1").attr("data-"+ height * .3, "opacity: 1; top: " + (10 + $("#title").outerHeight() + 50) + "px");
-	
-	// Start sliding and fading title away and moving up p1
-	$("#title").attr("data-" + height * .4, "top: 10px");
-	$("#title").attr("data-" + height * .6, "top: -" + ( $("#title").outerHeight() + 20 ) + "px");
-	$("#p1").attr("data-"+ height * .4, "opacity: 1; top: " + (10 + $("#title").outerHeight() + 50) + "px");
-	$("#p1").attr("data-"+ height * .6, "opacity: 1; top: 10px");
-	
-	$("#p2").attr("data-"+ height * .4, "opacity: 0; top: " + ($(window).height() +50) + "px");
-	$("#p2").attr("data-"+ height * .6, "opacity: 1; top: " + ( 10 + $("#p1").outerHeight() + 40 ) + "px");
+		// Roll it all up!
+		$("#p1").attr("data-"+ height * .75, "opacity: 1; top: 10px");
+		$("#p1").attr("data-"+ height * .95, "opacity: 1; top: -" + ( $("#p2").outerHeight() + 10 + $("#p1").outerHeight() + 10 ));
+		$("#p2").attr("data-"+ height * .75, "opacity: 1; top: " + ( 10 + $("#p1").outerHeight() + 40 ) + "px");	
+		$("#p2").attr("data-"+ height * .95, "opacity: 1; top: -" + ( $("#p2").outerHeight() + 10 ) + "px");	
 
-	// Roll it all up!
-	$("#p1").attr("data-"+ height * .75, "opacity: 1; top: 10px");
-	$("#p1").attr("data-"+ height * .95, "opacity: 1; top: -" + ( $("#p2").outerHeight() + 10 + $("#p1").outerHeight() + 10 ));
-	$("#p2").attr("data-"+ height * .75, "opacity: 1; top: " + ( 10 + $("#p1").outerHeight() + 40 ) + "px");	
-	$("#p2").attr("data-"+ height * .95, "opacity: 1; top: -" + ( $("#p2").outerHeight() + 10 ) + "px");	
-
-	s.refresh();
-
-	
+		s.refresh();
+	}
 }
 
 function getCenterFixedObject( obj ){

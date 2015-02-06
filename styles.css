@@ -1,13 +1,13 @@
-@import url(http://fonts.googleapis.com/css?family=Slabo+27px);
+@import url(https://fonts.googleapis.com/css?family=Slabo+27px);
 
 html,body {	
 	font-family:"Slabo 27px", Georgia, serif;
+	position:relative;
 }
 
 .highlight {
 	font-size:17pt;
 	display:inline-block;
-	float:left;
 	background-color: #333;
 	color:white;
 	padding:20px;
@@ -21,6 +21,7 @@ html,body {
 	max-width:700px;
 	text-align:justify;
 	margin:auto;
+	z-index:2;
 }
 
 
@@ -32,7 +33,7 @@ html,body {
 	padding:30px 0px;
 	background-color: rgba(253, 211, 0, .5);
 	box-shadow: inset 0px 0px 5px rgba(253, 211, 0, 1);
-	
+	z-index:2;
 }
 
 	.big .text {
@@ -41,6 +42,10 @@ html,body {
 		font-size: 15pt;
 		text-align:justify;
 		margin:auto;
+	}
+
+	#main-text {
+		z-index: -1;
 	}
 
 ul {
@@ -82,17 +87,98 @@ li li {
 		font-size:16pt;
 		line-height:1.5em;
 	}
-	
 
-@media screen and (max-width: 600px) {
+.social, .credit {
+	margin: 20px auto 0px;
+	width:60%;
+	border-top:1px solid lightgray;
+	padding-top:25px;
+	text-align:Center;
+	
+}
+
+	.social a {
+		border: 0;
+		padding:2%;
+		text-transform:uppercase;
+		background-color: #76B6E3;
+		color: white;
+		font-size:14pt;
+		font-family: "Roboto", sans-serif;
+		font-weight:600;
+		border-radius: 5px;
+		display:inline-block;
+		width:25%;
+		margin-bottom:10px;
+		opacity:.8;
+		margin-right:10px;
+		text-decoration:none;
+	}
+	
+		.social a:last-child {
+			margin-right:0px;
+		}
+		
+		.social a:hover {
+			opacity:1;
+			cursor:pointer;
+			
+		}
+	
+		.social a#twitter {
+			background-color: #4099FF;
+		}
+		
+		.social a#facebook {
+			background-color: #3B5998;
+		}
+		
+	.credit {
+		color: #ccc;
+	}
+		.credit a {
+			color: #aaa;
+			text-decoration:none;
+		}
+		
+			.credit:hover a {
+				color:#888;
+			}
+
+		.down-arrow {
+			display:none;
+		}
+
+
+@media screen and (max-width: 800px) {
+	
+	
+	.down-arrow{
+		font-size:30pt;
+		color: rgba(0,0,0,.3);
+		position:fixed;
+		bottom:0;	
+		text-align:center;
+		width:100%;
+		z-index:1;
+	}
+	
+		.fa-arrow-circle-down {
+		
+		
+		}
+	
+	.highlight, #p1, #p2{
+		text-align:left;
+	}
 	
 	.floating-box {
 		width:90%;
 	}
 	
 	.floating-box p {
-		font-size: 13pt;
-		line-height: 1.3em;
+		font-size: 15pt;
+		line-height: 1.4em;
 	}
 	
 	.big {
@@ -100,10 +186,24 @@ li li {
 	}
 	
 		.big .text {
-			font-size: 13pt;
+			font-size: 12pt;
 			line-height:1.4em;
-			
+			text-align:left;
 		}
+	
+	.social {
+		width:90%;
+	
+
+	}
+	
+	.social a {
+		display:block;
+		width:100%;
+		padding:20px 2%;
+		margin: 0px auto 10px;
+	}
+	
 	
 }
 
