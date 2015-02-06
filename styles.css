@@ -82,3 +82,31 @@ li li {
 		font-size:16pt;
 		line-height:1.5em;
 	}
+	
+
+@media screen and (max-width: 600px) {
+	
+	.floating-box {
+		width:90%;
+	}
+	
+	.floating-box p {
+		font-size: 13pt;
+		line-height: 1.3em;
+	}
+	
+	.big {
+		width:90%;
+	}
+	
+		.big .text {
+			font-size: 13pt;
+			line-height:1.4em;
+			
+		}
+	
+}
+
+
+
+
